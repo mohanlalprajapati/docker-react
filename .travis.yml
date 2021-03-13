@@ -7,5 +7,21 @@ services:
 before_install:
   - docker build -t reactapp -f Dockerfile.dev .
 
+#CI will automatically close test applciation.
 script:
   - docker run -e CI=true reactapp npm run test
+
+#This is for automatice deployment
+deploy:
+  provider: elasticbeanstalk
+  access_key_id:
+    secure: "$AWS_ACCESS_KEY"
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
+  region: "ap-south-1"
+  app: "docker-react"
+  env: "Dockerreact-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-926064184244"
+
+
+  
