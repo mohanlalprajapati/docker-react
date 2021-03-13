@@ -21,7 +21,7 @@ deploy:
   region: "ap-south-1"
   app: "docker-react"
   env: "Dockerreact-env"
-  bucket_name: "elasticbeanstalk-ap-south-1-926064184244"
+  bucket_name: "arn:aws:s3:::elasticbeanstalk-ap-south-1-926064184244"
 
 
   
